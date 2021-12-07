@@ -8,6 +8,8 @@ site_author: "ValueOfToday"
 copyright: "Creative Commons Zero v1.0 Universal"
 theme:
   name: "material"
+  logo: "img/logo.png"
+  favicon: "img/favicon.png"
   icon:
     repo: fontawesome/brands/github
   palette:
