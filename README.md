@@ -1,2 +1,3 @@
-# valueoftoday.github.com
-Value of Today Website
+# Welcome to the Value of Today project
+
+👉🏼 Visit [valueof.today](https://valueof.today/). 👀

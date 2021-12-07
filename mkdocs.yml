@@ -1,0 +1,63 @@
+docs_dir: "src/docs"
+site_name: "Value of Today"
+site_url: "https://www.valueof.today/"
+repo_url: "https://github.com/valueoftoday/valueoftoday.github.com/#readme"
+repo_name: valueoftoday/valueoftoday.github.com
+edit_uri: "edit/main/src/docs"
+site_author: "ValueOfToday"
+copyright: "Creative Commons Zero v1.0 Universal"
+theme:
+  name: "material"
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: "slate"
+      primary: "blue"
+      accent: "deep orange"
+      toggle:
+        icon: "material/weather-sunny"
+        name: "Switch to light mode"
+    - scheme: "default"
+      primary: "blue grey"
+      accent: "light blue"
+      toggle:
+        icon: "material/weather-night"
+        name: "Switch to dark mode"
+  features:
+    - "header.autohide"
+    - "navigation.indexes"
+    - "navigation.tabs"
+    - "navigation.tabs.sticky"
+    - "navigation.top"
+    - "navigation.sections"
+    - "toc.integrate"
+nav:
+  - "Home": "index.md"
+extra:
+  social:
+    - icon: "fontawesome/brands/github"
+      link: "https://github.com/valueoftoday/valueoftoday.github.com/"
+      name: "GitHub"
+  generator: false
+markdown_extensions:
+  - "admonition"
+  - "attr_list"
+  - "def_list"
+  - "md_in_html"
+  - "meta"
+  - "pymdownx.details"
+  - "pymdownx.emoji":
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - "pymdownx.highlight"
+  - "pymdownx.inlinehilite"
+  - "pymdownx.keys"
+  - "pymdownx.magiclink"
+  - "pymdownx.snippets"
+  - "pymdownx.superfences":
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - "pymdownx.tasklist":
+      custom_checkbox: true
