@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "name": ".github",
+      "path": "../../.github"
+    },
+    {
+      "name": "valueof.today",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "search.exclude": {
+      "docs/": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "Angular.ng-template",
+      "EditorConfig.EditorConfig",
+      "esbenp.prettier-vscode",
+      "Ionic.ionic"
+    ]
+  }
+}

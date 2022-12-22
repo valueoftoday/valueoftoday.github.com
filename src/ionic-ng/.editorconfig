@@ -1,0 +1,8 @@
+# Editor configuration, see https://editorconfig.org
+root = false
+
+[*.ts]
+quote_type = single
+
+[.nvmrc]
+insert_final_newline = false
