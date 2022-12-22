@@ -1,3 +1,0 @@
-# Value of Today
-
-Welcome! More to come soon...
