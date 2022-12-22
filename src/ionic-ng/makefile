@@ -1,7 +1,7 @@
 .DEFAULT_GOAL:=all
 
 .PHONY: all
-all: init check search-index install
+all: init check install
 
 .PHONY: nvm
 nvm:

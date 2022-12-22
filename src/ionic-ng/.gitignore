@@ -67,4 +67,21 @@ testem.log
 .DS_Store
 Thumbs.db
 
+/.angular
+/.idea
+/.ionic
+/.sass-cache
+/.sourcemaps
+/.versions
+/.vscode/*
+!/.vscode/extensions.json
+/coverage
+/cypress/screenshots
+/cypress/videos
+/dist
+/node_modules
+/platforms
+/plugins
+/www
+
 !*.code-workspace

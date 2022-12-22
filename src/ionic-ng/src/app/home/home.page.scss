@@ -1,27 +1,35 @@
+ion-toolbar {
+  svg#logo-icon {
+    min-width: var(--logo-icon-size);
+    min-height: var(--logo-icon-size);
+    width: var(--logo-icon-size);
+    height: var(--logo-icon-size);
+    max-width: var(--logo-icon-size);
+    max-height: var(--logo-icon-size);
+
+    .cls-1,
+    .cls-2 {
+      fill: #62cbe6;
+    }
+    .cls-3 {
+      fill: #3595d2;
+    }
+    .cls-2 {
+      fill-rule: evenodd;
+    }
+  }
+}
+
 #container {
-  text-align: center;
+  width: 300px;
+  max-width: 300px;
+  margin: 20px auto;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  ion-card {
+    padding: 15px;
+  }
+  ion-card-title {
+    font-size: 2em;
+    text-align: center;
+  }
 }

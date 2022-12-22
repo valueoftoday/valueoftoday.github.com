@@ -12,15 +12,15 @@ env:
   PUSH_EVENT: "push"
   YARN_CACHE_NAME: "yarn"
   YARN_CACHE_PATH: "./**/yarn.lock"
-  OUR_AUTODOC_COMMIT: "docs: auto-generated documentation"
-  OUR_AUTODOC_DESC: "Automatically generated documentation that requires a PR, because the main branch is protected."
-  OUR_AUTODOC_LABELS: "documentation"
+  VOT_AUTODOC_COMMIT: "docs: auto-generated documentation"
+  VOT_AUTODOC_DESC: "Automatically generated documentation that requires a PR, because the main branch is protected."
+  VOT_AUTODOC_LABELS: "documentation"
   # this variable uses a system account since there are permission issues when assigning teams
   # see: https://github.com/peter-evans/create-pull-request/issues/155#issuecomment-611904487
-  OUR_AUTODOC_REVIEWERS: "ericis"
-  OUR_AUTODOC_ASSIGNEES: "ericis"
-  OUR_SKIP_CI: "[skip ci]"
-  OUR_CREATE_PR: "valueoftoday/create-pull-request/patch"
+  VOT_AUTODOC_REVIEWERS: "ericis"
+  VOT_AUTODOC_ASSIGNEES: "ericis"
+  VOT_SKIP_CI: "[skip ci]"
+  VOT_CREATE_PR: "valueoftoday/create-pull-request/patch"
 
 # Trigger the workflow on push or pull request.
 on: [push, pull_request]
@@ -55,3 +55,22 @@ jobs:
       - name: install
         run: |
           make all
+          sudo chown -R $(whoami) ./docs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        # If push to main, avoid infinite loop.
+        if: |
+          github.event_name == env.PUSH_EVENT &&
+          github.ref == env.MAIN_BRANCH_REF &&
+          !contains(github.event.head_commit.message, env.VOT_CREATE_PR)
+        with:
+          title: ${{ env.VOT_AUTODOC_COMMIT }}
+          signoff: true
+          commit-message: "${{ env.VOT_AUTODOC_COMMIT }} ${{ env.VOT_SKIP_CI }}"
+          body: ${{ env.VOT_AUTODOC_DESC }}
+          labels: ${{ env.VOT_AUTODOC_LABELS }}
+          assignees: ${{ env.VOT_AUTODOC_ASSIGNEES }}
+          # a PAT was generated to support this field
+          # see: https://github.com/peter-evans/create-pull-request/issues/155
+          team-reviewers: ${{ env.VOT_AUTODOC_REVIEWERS }}
